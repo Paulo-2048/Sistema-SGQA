@@ -1,5 +1,6 @@
 package br.ucsal.app.entity;
 
+import br.ucsal.app.dto.EstudanteRequestDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -38,4 +39,16 @@ public class Estudante {
 
   @Column(name = "est_anoegresso", nullable = false)
   private Integer anoEgresso;
+
+
+  public Estudante(EstudanteRequestDTO data) {
+    this.matricula = data.matricula();
+    this.nomeCompleto = data.nomeCompleto();
+    this.email = data.email();
+    this.anoEgresso = data.anoEgresso();
+  }
+
+  public Estudante() {
+  }
 }
+

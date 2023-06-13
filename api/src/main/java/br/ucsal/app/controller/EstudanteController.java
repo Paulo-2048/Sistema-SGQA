@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import br.ucsal.app.repository.EstudanteRepository;
 import br.ucsal.app.entity.Estudante;
@@ -45,8 +46,9 @@ public class EstudanteController {
   }
 
   @PostMapping
-  public Estudante create(EstudanteRequestDTO data) {
+  public Estudante create(@RequestBody EstudanteRequestDTO data) {
     Estudante estudante = new Estudante();
+    
     estudante.setMatricula(data.matricula());
     estudante.setNomeCompleto(data.nomeCompleto());
     estudante.setEmail(data.email());
