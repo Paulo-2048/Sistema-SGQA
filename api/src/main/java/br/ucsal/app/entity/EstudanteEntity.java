@@ -22,7 +22,7 @@ import lombok.Setter;
 @Entity(name = "Estudante")
 @Getter
 @Setter
-public class Estudante {
+public class EstudanteEntity {
   
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "est_id", nullable = false)
@@ -41,14 +41,14 @@ public class Estudante {
   private Integer anoEgresso;
 
 
-  public Estudante(EstudanteRequestDTO data) {
+  public EstudanteEntity(EstudanteRequestDTO data) {
     this.matricula = data.matricula();
     this.nomeCompleto = data.nomeCompleto();
     this.email = data.email();
     this.anoEgresso = data.anoEgresso();
   }
 
-  public Estudante() {
+  public EstudanteEntity() {
   }
 }
 

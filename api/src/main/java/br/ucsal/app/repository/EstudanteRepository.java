@@ -1,9 +1,9 @@
 package br.ucsal.app.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import br.ucsal.app.entity.Estudante;
+import br.ucsal.app.entity.EstudanteEntity;
 
-public interface EstudanteRepository extends JpaRepository<Estudante, Integer>{
+public interface EstudanteRepository extends JpaRepository<EstudanteEntity, Integer>{
   
-  public Estudante findByMatricula(String matricula);
+  public EstudanteEntity findByMatricula(String matricula);
 }
