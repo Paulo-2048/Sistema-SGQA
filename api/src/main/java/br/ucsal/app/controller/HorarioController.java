@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,7 @@ import br.ucsal.app.dto.ResponseFail;
 import br.ucsal.app.dto.ResponseSuccess;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("horario")
 public class HorarioController {
   
@@ -65,6 +67,25 @@ public class HorarioController {
       System.out.println(e.getMessage());
 
       ResponseFail errorResponse = new ResponseFail("Erro ao listar horario");
+      return ResponseEntity.badRequest().body(errorResponse);
+    }
+  }
+
+  @GetMapping("/estudante/{id}")
+  public ResponseEntity<ApiResponse> findByEstudanteId(@PathVariable Integer id) {
+    try{
+      List<HorarioEntity> horarios = repository.findByEstudantId(id);
+
+      if (horarios.isEmpty()) {
+        throw new Exception("Nenhum horario encontrado");
+      }
+
+      ResponseSuccess response = new ResponseSuccess("Horarios listados com sucesso", horarios);
+      return ResponseEntity.ok().body(response);
+    } catch(Exception e){
+      System.out.println(e.getMessage());
+
+      ResponseFail errorResponse = new ResponseFail("Erro ao listar horarios");
       return ResponseEntity.badRequest().body(errorResponse);
     }
   }
