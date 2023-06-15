@@ -39,4 +39,7 @@ public class MatriculaEntity {
     this.disciplinaId = data.disciplinaId();
     this.estudanteId = data.estudanteId();
   }
+
+  public MatriculaEntity() {
+  }
 }

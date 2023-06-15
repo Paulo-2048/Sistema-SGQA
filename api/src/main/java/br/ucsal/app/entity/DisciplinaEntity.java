@@ -46,4 +46,7 @@ public class DisciplinaEntity {
     this.nome = data.nome();
     this.professorId = data.professorId();
   }
+
+  public DisciplinaEntity() {
+  }
 }

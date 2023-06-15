@@ -48,4 +48,7 @@ public class ProfessorEntity {
     this.email = data.email();
     this.anoEgresso = data.anoEgresso();
   }
+
+  public ProfessorEntity() {
+  }
 }

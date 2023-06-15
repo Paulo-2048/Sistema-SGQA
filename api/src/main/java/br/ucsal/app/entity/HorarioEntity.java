@@ -61,4 +61,7 @@ public class HorarioEntity {
     this.horarioFinal = data.horarioFinal();
   }
 
+  public HorarioEntity() {
+  }
+
 }
