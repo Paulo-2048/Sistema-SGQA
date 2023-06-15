@@ -19,6 +19,15 @@ public enum DiasSemanaEnum {
     return value;
   }
 
+  public static DiasSemanaEnum fromValue(String value) {
+    for (DiasSemanaEnum dia : DiasSemanaEnum.values()) {
+      if (value.equalsIgnoreCase(dia.name())) {
+        return dia;
+      }
+    }
+    return null;
+  }
+
   public static DiasSemanaEnum fromValue(Integer value) {
     for (DiasSemanaEnum dia : DiasSemanaEnum.values()) {
       if (dia.value.equals(value)) {

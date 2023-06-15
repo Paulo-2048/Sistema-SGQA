@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import br.ucsal.app.repository.HorarioRepository;
 import br.ucsal.app.entity.HorarioEntity;
 import br.ucsal.app.dto.ApiResponse;
+import br.ucsal.app.dto.DiasSemanaEnum;
 import br.ucsal.app.dto.HorarioRequestDTO;
 import br.ucsal.app.dto.ResponseFail;
 import br.ucsal.app.dto.ResponseSuccess;
@@ -101,7 +102,7 @@ public class HorarioController {
       horario.setDataFinal(data.dataFinal());
       horario.setHorarioInicio(data.horarioInicio());
       horario.setHorarioFinal(data.horarioFinal());
-      horario.setDiaSemana(data.diaDaSemana());
+      horario.setDiaSemana(DiasSemanaEnum.fromValue(data.diaDaSemana()));
 
       HorarioEntity horarioResponse = repository.save(horario);
 

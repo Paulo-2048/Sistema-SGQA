@@ -4,6 +4,8 @@ import br.ucsal.app.dto.DiasSemanaEnum;
 import br.ucsal.app.dto.HorarioRequestDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -44,6 +46,7 @@ public class HorarioEntity {
   private LocalDate dataFinal;
 
   @Column(name = "hor_dia_semana", nullable = false)
+  @Enumerated(EnumType.STRING)
   private DiasSemanaEnum diaSemana;
 
   @Column(name = "hor_horario_inicio", nullable = false)
@@ -56,7 +59,7 @@ public class HorarioEntity {
     this.disciplinaId = data.disciplinaId();
     this.dataInicio = data.dataInicio();
     this.dataFinal = data.dataFinal();
-    this.diaSemana = data.diaDaSemana();
+    this.diaSemana = DiasSemanaEnum.fromValue(data.diaDaSemana());
     this.horarioInicio = data.horarioInicio();
     this.horarioFinal = data.horarioFinal();
   }
