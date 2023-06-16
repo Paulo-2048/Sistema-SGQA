@@ -17,7 +17,7 @@ public interface HorarioRepository extends JpaRepository<HorarioEntity, Integer>
     INNER JOIN Matricula mat ON mat.estudanteId = dis.Id
     WHERE mat.estudanteId = :estudantId
   """)
-  public List<HorarioEntity> buscarHorarioByEstudanteId(@Param("estudantId") Integer estudanteId);
+  public List<Object> buscarHorarioByEstudanteId(@Param("estudantId") Integer estudanteId);
 
   @Query("""
     SELECT codigoDisciplina, dis.nome, diaSemana, horarioInicio, horarioFinal
@@ -25,6 +25,6 @@ public interface HorarioRepository extends JpaRepository<HorarioEntity, Integer>
     INNER JOIN Disciplina dis ON dis.Id = hor.disciplinaId
     WHERE dis.professorId = :professorId
   """)
-  public List<HorarioEntity> buscarHorarioByProfessorId(@Param("professorId") Integer estudanteId);
+  public List<Object> buscarHorarioByProfessorId(@Param("professorId") Integer estudanteId);
   
 }
