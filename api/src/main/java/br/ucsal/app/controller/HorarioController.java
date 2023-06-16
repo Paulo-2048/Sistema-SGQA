@@ -74,7 +74,7 @@ public class HorarioController {
   @GetMapping("/estudante/{id}")
   public ResponseEntity<ApiResponse> findByEstudanteId(@PathVariable Integer id) {
     try{
-      List<HorarioEntity> horarios = repository.findByEstudantId(id);
+      List<HorarioEntity> horarios = repository.buscarHorarioByEstudanteId(id);
 
       if (horarios.isEmpty()) {
         throw new Exception("Nenhum horario encontrado");

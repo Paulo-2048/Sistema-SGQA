@@ -11,11 +11,12 @@ import java.util.List;
 public interface HorarioRepository extends JpaRepository<HorarioEntity, Integer> {
 
   @Query("""
-          SELECT dis_codigodisciplina, dis_nome, hor_dia_semana, hor_horario_inicio, hor_horario_final FROM hor_horario
-          INNER JOIN dis_disciplina ON dis_id = hor_dis_id
-          INNER JOIN mat_matricula ON mat_dis_id = dis_id
-          WHERE mat_est_id = :estudantId
+    SELECT codigoDisciplina, dis.nome, diaSemana, horarioInicio, horarioFinal
+    FROM Horario hor
+    INNER JOIN Disciplina dis ON dis.Id = hor.disciplinaId
+    INNER JOIN Matricula mat ON mat.estudanteId = dis.Id
+    WHERE mat.estudanteId = :estudantId
   """)
-  public List<HorarioEntity> findByEstudantId(@Param("estudantId") Integer estudanteId);
+  public List<HorarioEntity> buscarHorarioByEstudanteId(@Param("estudantId") Integer estudanteId);
   
 }
