@@ -90,6 +90,25 @@ public class HorarioController {
     }
   }
 
+  @GetMapping("/professor/{id}")
+  public ResponseEntity<ApiResponse> findByProfessorId(@PathVariable Integer id) {
+    try{
+      List<HorarioEntity> horarios = repository.buscarHorarioByProfessorId(id);
+
+      if (horarios.isEmpty()) {
+        throw new Exception("Nenhum horario encontrado");
+      }
+
+      ResponseSuccess response = new ResponseSuccess("Horarios listados com sucesso", horarios);
+      return ResponseEntity.ok().body(response);
+    } catch(Exception e){
+      System.out.println(e.getMessage());
+
+      ResponseFail errorResponse = new ResponseFail("Erro ao listar horarios");
+      return ResponseEntity.badRequest().body(errorResponse);
+    }
+  }
+
 
   @PostMapping
   public ResponseEntity<ApiResponse> create(@RequestBody HorarioRequestDTO data) {
