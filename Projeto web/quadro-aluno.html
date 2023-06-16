@@ -4,7 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quadro de Horários Aluno</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
   <style>
+    main {
+      position: relative;
+      width: 1440px;
+      height: 1024px;
+      background: #222222;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    body{
+      background: #222222;
+    }
+
+    .navbar-nav{
+      width: 100%;
+      justify-content: space-around;
+    }
+
+    nav a{
+      font-size: 18px;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
@@ -13,41 +40,71 @@
     th, td {
       border: 1px solid black;
       padding: 8px;
+      color: white;
+      font-family: 'Nunito';
     }
     th {
-      background-color: #f2f2f2;
+      background-color: rgb(121, 110, 110);
     }
+
+    h1{
+      color: #FFFFFF;
+      font-family: 'Nunito';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 48px;
+      line-height: 65px;
+    }
+
   </style>
 </head>
 <body>
-  <h1>Quadro de Horário do Aluno</h1>
-
-  <table>
+<main>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="./listar-disciplina.html">Disciplina</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./cadastro-aluno.html">Cadastrar Aluno</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./cadastro-professor.html">Cadastrar Professor</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./cadastro-disciplina.html">Cadastrar Disciplina</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./matricular-aluno.html">Matricular Aluno</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="./listar-aluno.html">Horário Alunos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./listar-professor.html">Horário Professores</a>
+            </li>
+            </ul>
+        </div>
+    </div>
+  </nav><br>
+  <h1>Quadro de Horário do Aluno </h1>
+  <br/><br/>
+  <table id="quadro-horarios">
     <tr>
-      <th>Horário</th>
-      <th>Segunda-feira</th>
-      <th>Terça-feira</th>
-      <th>Quarta-feira</th>
-      <th>Quinta-feira</th>
-      <th>Sexta-feira</th>
-    </tr>
-    <tr>
-      <td>7:00 - 9:40</td>
-      <td>Matemática - Turma 1 - Sala B419</td>
-      <td>Português - Turma 1 - Sala B419</td>
-      <td>História - Turma 1 - Sala B419</td>
-      <td>Biologia - Turma 1 - Sala B419</td>
-      <td>Química - Turma 1 - Sala B419</td>
-    </tr>
-    <tr>
-      <td>9:50 - 12:30 </td>
-      <td>Física - Turma 1 - Sala B419</td>
-      <td>Inglês - Turma 1 - Sala B419</td>
-      <td>Geografia - Turma 1 - Sala B419</td>
-      <td>Matemática - Turma 1 - Sala B419</td>
-      <td>Arte - Turma 1 - Sala B419</td>
+      <th>Código</th>
+      <th>Nome da Disciplina</th>
+      <th>Dia</th>
+      <th>Horário Início</th>
+      <th>Horário Final</th>
     </tr>
   </table>
-
+</main>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script type="module" src="quadro-aluno.js"></script>
 </html>
